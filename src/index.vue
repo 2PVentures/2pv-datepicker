@@ -12,6 +12,19 @@ import SingleInput from './SingleInput'
 import WrapperInput from './WrapperInput'
 import Flatpickr from 'flatpickr'
 
+import ru from 'flatpickr/src/l10n/ru';
+import de from 'flatpickr/src/l10n/de';
+import fr from 'flatpickr/src/l10n/fr';
+import ja from 'flatpickr/src/l10n/ja';
+
+const I18n = {
+  'default': 'default',
+  'ru': ru.ru,
+  'de': de.de,
+  'fr': fr.fr,
+  'ja': ja.ja
+}
+
 export default {
   mixins: [BasicInput],
 
@@ -41,7 +54,16 @@ export default {
       this.datepicker = new Flatpickr(this.$el, this.config)
       this.setDate(this.value)
     }
-    this.$watch('config', this.redraw)
+
+    this.$watch('config', (newConfig) => {
+      //setup the constructor to be localized to the new config locale
+      if (newConfig.locale){
+        Flatpickr.localize(I18n[newConfig.locale]);
+      }
+      //"redraw" the datepicker widget
+      this.redraw(newConfig);
+    });
+
     this.$watch('value', this.setDate)
   },
 
@@ -54,9 +76,11 @@ export default {
 
   methods: {
     redraw (newConfig) {
-      this.datepicker.config = Object.assign(this.datepicker.config, newConfig)
-      this.datepicker.redraw()
-      this.datepicker.jumpToDate()
+      //instead of updating the config, we regenerate the flatpickr altogether
+      //this allows the new locale settings to take effect
+      this.datepicker = new Flatpickr(this.$el, this.config);
+      this.datepicker.redraw();
+      this.datepicker.jumpToDate();
     },
     setDate (newDate, oldDate) {
       newDate && this.datepicker.setDate(newDate)
