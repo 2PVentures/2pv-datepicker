@@ -10,12 +10,12 @@
 import BasicInput from './BasicInput'
 import SingleInput from './SingleInput'
 import WrapperInput from './WrapperInput'
-import Flatpickr from 'flatpickr'
+import Flatpickr from '../node_modules/flatpickr'
 
-import ru from 'flatpickr/src/l10n/ru';
-import de from 'flatpickr/src/l10n/de';
-import fr from 'flatpickr/src/l10n/fr';
-import ja from 'flatpickr/src/l10n/ja';
+import ru from '../node_modules/flatpickr/src/l10n/ru';
+import de from '../node_modules/flatpickr/src/l10n/de';
+import fr from '../node_modules/flatpickr/src/l10n/fr';
+import ja from '../node_modules/flatpickr/src/l10n/ja';
 
 const I18n = {
   'default': 'default',
@@ -130,7 +130,7 @@ $day_hover_background_color = #d3d6db
 $today_color = #ed6c63
 $selected_day_background = #1fc8db
 
-@import '~flatpickr/src/style/flatpickr'
+@import '../node_modules/flatpickr/src/style/flatpickr.styl'
 
 .flatpickr-calendar.hasWeeks
   width: auto !important
