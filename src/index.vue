@@ -12,18 +12,7 @@ import SingleInput from './SingleInput'
 import WrapperInput from './WrapperInput'
 import Flatpickr from '../node_modules/flatpickr'
 
-import ru from '../node_modules/flatpickr/src/l10n/ru';
-import de from '../node_modules/flatpickr/src/l10n/de';
-import fr from '../node_modules/flatpickr/src/l10n/fr';
-import ja from '../node_modules/flatpickr/src/l10n/ja';
-
-const I18n = {
-  'default': 'default',
-  'ru': ru.ru,
-  'de': de.de,
-  'fr': fr.fr,
-  'ja': ja.ja
-}
+import * as locales from '../node_modules/flatpickr/src/l10n';
 
 export default {
   mixins: [BasicInput],
@@ -58,7 +47,9 @@ export default {
     this.$watch('config', (newConfig) => {
       //setup the constructor to be localized to the new config locale
       if (newConfig.locale){
-        Flatpickr.localize(I18n[newConfig.locale]);
+        Flatpickr.localize(locales[newConfig.locale]);
+        //reinitialise the datepicker so that changes take effect
+        this.reinit();
       }
       //"redraw" the datepicker widget
       this.redraw(newConfig);
@@ -75,6 +66,12 @@ export default {
   },
 
   methods: {
+    reinit () {
+      this.config.onValueUpdate = this.dateUpdated;
+      //instead of updating the config, we regenerate the flatpickr altogether
+      //this allows the new locale settings to take effect
+      this.datepicker = new Flatpickr(this.$el, this.config);
+    },
     redraw (newConfig) {
       //instead of updating the config, we regenerate the flatpickr altogether
       //this allows the new locale settings to take effect
