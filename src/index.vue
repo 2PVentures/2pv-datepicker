@@ -11,8 +11,12 @@ import BasicInput from './BasicInput'
 import SingleInput from './SingleInput'
 import WrapperInput from './WrapperInput'
 
-import Flatpickr from 'flatpickr';
-import * as locales from 'flatpickr/src/l10n';
+import Flatpickr from 'flatpickr'
+import de from 'flatpickr/src/l10n/de';
+
+const I18n = {
+  'de': de.de
+};
 
 export default {
   mixins: [BasicInput],
@@ -48,8 +52,8 @@ export default {
       //TODO: throw an error on invalid locale?
       //setup the constructor to be localized to the new config locale
       if (newConfig.locale){
-        let new_locale = newConfig.locale === 'en' ? 'default' : newConfig.locale;
-        Flatpickr.localize(locales[new_locale]);
+        let lang = I18n[newConfig.locale] || 'default';
+        Flatpickr.localize(lang);
         //reinitialise the datepicker so that changes take effect
         this.reinit();
       }
