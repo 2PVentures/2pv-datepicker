@@ -10,9 +10,9 @@
 import BasicInput from './BasicInput'
 import SingleInput from './SingleInput'
 import WrapperInput from './WrapperInput'
-import Flatpickr from '../node_modules/flatpickr'
 
-import * as locales from '../node_modules/flatpickr/src/l10n';
+import Flatpickr from 'flatpickr';
+import * as locales from 'flatpickr/src/l10n';
 
 export default {
   mixins: [BasicInput],
