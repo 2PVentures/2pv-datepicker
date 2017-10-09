@@ -129,7 +129,7 @@ $day_hover_background_color = #d3d6db
 $today_color = #ed6c63
 $selected_day_background = #1fc8db
 
-@import '../node_modules/flatpickr/src/style/flatpickr.styl'
+@import '~flatpickr/src/style/flatpickr'
 
 .flatpickr-calendar.hasWeeks
   width: auto !important
