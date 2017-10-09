@@ -47,8 +47,9 @@ export default {
     this.$watch('config', (newConfig) => {
       //TODO: throw an error on invalid locale?
       //setup the constructor to be localized to the new config locale
-      if (newConfig.locale && locales[newConfig.locale]){
-        Flatpickr.localize(locales[newConfig.locale]);
+      if (newConfig.locale){
+        let new_locale = newConfig.locale === 'en' ? 'default' : newConfig.locale;
+        Flatpickr.localize(new_locale);
         //reinitialise the datepicker so that changes take effect
         this.reinit();
       }
