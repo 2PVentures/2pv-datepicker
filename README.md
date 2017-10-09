@@ -1,11 +1,12 @@
 # Datepicker
 
 Datepicker component is based on [flatpickr](https://github.com/chmln/flatpickr) for Vue Bulma.
+Forked from [vue-bulma-datepicker](https://github.com/vue-bulma/datepicker) in order to implement reinitialisation for locale changes on the fly.
 
 ## Installation
 
 ```
-$ npm install vue-bulma-datepicker --save
+$ npm install 2pv-vue-bulma-datepicke --save
 ```
 
 ## Examples
@@ -18,7 +19,7 @@ $ npm install vue-bulma-datepicker --save
 </template>
 
 <script>
-import Datepicker from 'vue-bulma-datepicker'
+import Datepicker from '2pv-vue-bulma-datepicke'
 
 export default {
   components: {
@@ -39,7 +40,7 @@ export default {
 </template>
 
 <script>
-import Datepicker from 'vue-bulma-datepicker'
+import Datepicker from '2pv-vue-bulma-datepicke'
 
 export default {
   components: {
