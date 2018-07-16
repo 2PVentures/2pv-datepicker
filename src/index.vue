@@ -15,7 +15,7 @@ import Flatpickr from 'flatpickr'
 import de from 'flatpickr/src/l10n/de';
 
 const I18n = {
-  'de': de.de
+  de: Object.assign({}, de.de, { rangeSeperator: " - " })
 };
 
 export default {
