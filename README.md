@@ -5,15 +5,15 @@ Forked from [vue-bulma-datepicker](https://github.com/vue-bulma/datepicker) in o
 
 ## Installation
 
-```
-$ npm install 2pv-vue-bulma-datepicke --save
+```sh
+npm install 2pv-vue-bulma-datepicker --save
 ```
 
 ## Examples
 
 ### Single Input
 
-```vue
+```html
 <template>
   <datepicker placeholder="European Format ('d-m-Y')" :config="{ dateFormat: 'd-m-Y', static: true }"></datepicker>
 </template>
@@ -31,7 +31,7 @@ export default {
 
 ### Wrap Input
 
-```vue
+```html
 <template>
   <datepicker :config="{ wrap: true }" readonly>
     <a class="button" data-toggle><i class="fa fa-calendar"></i></a>
@@ -52,5 +52,5 @@ export default {
 
 ## Badges
 
-![](https://img.shields.io/badge/license-MIT-blue.svg)
-![](https://img.shields.io/badge/status-stable-green.svg)
+![license-state](https://img.shields.io/badge/license-MIT-blue.svg)
+![status](https://img.shields.io/badge/status-stable-green.svg)
