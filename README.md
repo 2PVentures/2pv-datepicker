@@ -19,7 +19,7 @@ $ npm install 2pv-vue-bulma-datepicke --save
 </template>
 
 <script>
-import Datepicker from '2pv-vue-bulma-datepicke'
+import Datepicker from '2pv-vue-bulma-datepicker'
 
 export default {
   components: {
@@ -40,7 +40,7 @@ export default {
 </template>
 
 <script>
-import Datepicker from '2pv-vue-bulma-datepicke'
+import Datepicker from '2pv-vue-bulma-datepicker'
 
 export default {
   components: {
