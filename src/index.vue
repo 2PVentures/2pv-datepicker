@@ -14,9 +14,9 @@ import WrapperInput from './WrapperInput'
 import Flatpickr from 'flatpickr'
 import de from 'flatpickr/src/l10n/de';
 
-const I18n = {
-  de: Object.assign({}, de.de, { rangeSeparator: " - " })
-};
+const I18n = { de: de.de };
+// see TPV-1973
+I18n.de.rangeSeparator = " - ";
 
 export default {
   mixins: [BasicInput],
