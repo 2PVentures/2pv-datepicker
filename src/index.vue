@@ -53,7 +53,7 @@ export default {
       //setup the constructor to be localized to the new config locale
       if (newConfig.locale){
         let lang = I18n[newConfig.locale] || 'default';
-        Flatpickr.localize(lang);
+        newConfig.locale = lang;
         //reinitialise the datepicker so that changes take effect
         this.reinit();
       }
